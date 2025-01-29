@@ -1,0 +1,20 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            write(*,'(a)') filegeom
+            write(*,'(a)') filedata
+            write(*,'(a)') fileprec
+         else
+            call system('date > '//verb_file(1:lnblnk(verb_file)))
+            open(50,file=verb_file,access='append')
+            write(50,'(a)') '... INVDFE v2.5.2 ...'
+            write(50,'(a)') '... A. Herrero ...'
+            write(50,'(a)') 
+            write(50,'(a)') 'datafile :'
+            write(50,'(a)') filegeom
+            write(50,'(a)') filedata
+            write(50,'(a)') fileprec
+            write(50,'(a)') 
+            close(50)
+         endif
+      endif

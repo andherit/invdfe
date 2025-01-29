@@ -1,0 +1,21 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            if (topo_type.eq.0) then
+            write(*,*) 'topo type : flat at ',topo_alt,' m'
+            endif
+            if (topo_type.eq.1) then
+            write(*,*) 'topo type : defined by the file : ',topo_file
+            endif
+         else
+            open(50,file=verb_file,access='append')
+            if (topo_type.eq.0) then
+            write(50,*) 'topo type : flat at ',topo_alt,' m'
+            endif
+            if (topo_type.eq.1) then
+            write(50,*) 'topo type : defined by the file : ',
+     &topo_file(1:lnblnk(topo_file))
+            endif
+            close(50)
+         endif
+      endif

@@ -1,0 +1,18 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            write(*,*) 
+            write(*,*) '*************************'
+            write(*,*) 'starting resolution study'
+            write(*,*) 2*nres+1,' models per parameter'
+            write(*,*) 'spacing of ',dres
+         else
+            open(50,file=verb_file,access='append')
+            write(50,*) 
+            write(50,*) '*************************'
+            write(50,*) 'starting resolution study'
+            write(50,*) 2*nres+1,' models per parameter'
+            write(50,*) 'spacing of ',dres
+            close(50)
+         endif
+      endif

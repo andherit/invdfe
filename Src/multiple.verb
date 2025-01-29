@@ -1,0 +1,13 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            write(*,*) imov,' movement : multiple'
+            write(*,*) 'nb of iterations : ',iter
+         else
+            open(50,file=verb_file,access='append')
+            write(50,*) imov,' movement : multiple'
+            write(50,*) 'nb of iterations : ',iter
+            close(50)
+         endif
+      endif
+      imov=imov+1

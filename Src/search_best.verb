@@ -1,0 +1,23 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            write(*,*) 'best : ',iter,mat_mis(ilo),mat_mis(ihi)
+            if (tymo.eq.0) write(*,*) 'init'
+            if (tymo.eq.1) write(*,*) 'reflection'
+            if (tymo.eq.2) write(*,*) 'expansion'
+            if (tymo.eq.3) write(*,*) 'contraction'
+            if (tymo.eq.4) write(*,*) 'montecarlo'
+            write(*,*) 'new loop'
+         else
+            open(50,file=verb_file,access='append')
+            write(50,*) 'best : ',iter,mat_mis(ilo),mat_mis(ihi)
+            if (tymo.eq.0) write(50,*) 'init'
+            if (tymo.eq.1) write(50,*) 'reflection'
+            if (tymo.eq.2) write(50,*) 'expansion'
+            if (tymo.eq.3) write(50,*) 'contraction'
+            if (tymo.eq.4) write(50,*) 'montecarlo'
+            write(50,*) 'new loop'
+            close(50)
+         endif
+      endif
+      imov=imov+1

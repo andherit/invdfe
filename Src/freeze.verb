@@ -1,0 +1,15 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            write(*,*)
+            write(*,*) 'general backup by freeze option'
+            write(*,*)
+         else
+            open(50,file=verb_file,access='append')
+            write(50,*)
+            write(50,*) 'general backup by freeze option'
+            write(50,*)
+            close(50)
+         endif
+      endif
+      imov=imov+1

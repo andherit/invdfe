@@ -1,0 +1,14 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            write(*,*) 'simplex initialisation'
+            write(*,*) ndim+1,' models to compute ...'
+            write(*,*) 'random seed : ',ival
+         else
+            open(50,file=verb_file,access='append')
+            write(50,*) 'simplex initialisation'
+            write(50,*) ndim+1,' models to compute ...'
+            write(50,*) 'random seed : ',ival
+            close(50)
+         endif
+      endif

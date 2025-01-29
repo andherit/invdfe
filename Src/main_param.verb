@@ -1,0 +1,38 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            if (mode.eq.0) then
+                write(*,*) 'first arrivals only'
+         write(*,*) 'number of parameter : ',nxt(1)*nzt(1)
+            endif
+            if (mode.eq.1) then
+                write(*,*) 'first arrivals and reflected'
+                write(*,*) 'number of parameter : ',
+     &nxt(1)*nzt(1)+nxt(2)*nzt(2)+ni
+            endif
+            write(*,*) 'number of stations  : ',nsta
+            write(*,*) 'number of shots     : ',nsho
+            write(*,*)
+            if (search_type.eq.1) then
+                write(*,*) 'search type : downhill simplex'
+            endif
+         else
+            open(50,file=verb_file,access='append')
+            if (mode.eq.0) then
+                write(50,*) 'first arrivals only'
+         write(50,*) 'number of parameter : ',nxt(1)*nzt(1)
+            endif
+            if (mode.eq.1) then
+                write(50,*) 'first arrivals and reflected'
+                write(50,*) 'number of parameter : ',
+     &nxt(1)*nzt(1)+nxt(2)*nzt(2)+ni
+            endif
+            write(50,*) 'number of stations  : ',nsta
+            write(50,*) 'number of shots     : ',nsho
+            write(50,*) 
+            if (search_type.eq.1) then
+                write(50,*) 'search type : downhill simplex'
+            endif
+            close(50)
+         endif
+      endif

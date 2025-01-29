@@ -1,0 +1,10 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+            write(*,*) 'test : ',rtol,stop_par
+         else
+            open(50,file=verb_file,access='append')
+            write(50,*) 'test : ',rtol,stop_par
+            close(50)
+         endif
+      endif

@@ -1,0 +1,12 @@
+c234567
+      if (verb_type.ge.1) then
+         if (verb_file(1:5).eq.'stdin') then
+         if (apri_type.eq.0) write(*,*) 'no a priori model'
+         if (apri_type.eq.1) write(*,*) 'file a priori model'
+         else
+            open(50,file=verb_file,access='append')
+         if (apri_type.eq.0) write(50,*) 'no a priori model'
+         if (apri_type.eq.1) write(50,*) 'file a priori model'
+            close(50)
+         endif
+      endif

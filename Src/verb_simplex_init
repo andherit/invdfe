@@ -1,0 +1,12 @@
+c234567
+      subroutine verb_simplex_init
+      implicit none
+
+      include 'common/verbose.com'
+
+      open(50,file=verb_file,access='append')
+      write(50,*) 'simplex search init'
+      close(50)
+      if (verb_type.gt.1) write(*,*) 'simplex search init'
+      return
+      end
